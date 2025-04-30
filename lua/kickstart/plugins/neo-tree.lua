@@ -13,12 +13,18 @@ return {
   keys = {
     { '<C-n>', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  ---@module "neo-tree"
+  ---@type neotree.Config?
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['<C-n>'] = 'close_window',
         },
+      },
+      filtered_items = {
+        visible = true,
+        hide_gitignored = true,
       },
     },
   },
