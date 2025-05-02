@@ -9,12 +9,19 @@ return {
     event = 'InsertEnter',
     opts = {
       suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = '<C-Right>',
-        },
+        enabled = false,
+      },
+      panel = {
+        enabled = false,
       },
     },
+  },
+  {
+    'giuxtaposition/blink-cmp-copilot',
+    after = { 'copilot.lua' },
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = 'BufReadPost',
   },
 }
