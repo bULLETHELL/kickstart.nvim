@@ -162,6 +162,7 @@ vim.opt.scrolloff = 10
 vim.opt.confirm = true
 
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -696,6 +697,20 @@ require('lazy').setup({
             },
           },
         },
+        gopls = {
+          cmd = { 'gopls' },
+          filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+          root_dir = require('lspconfig/util').root_pattern('go.mod', 'go.work', '.git'),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -766,6 +781,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        go = { 'gofumpt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
